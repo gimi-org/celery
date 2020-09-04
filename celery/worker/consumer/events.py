@@ -41,6 +41,7 @@ class Events(bootsteps.StartStopStep):
             hostname=c.hostname,
             enabled=self.send_events,
             groups=self.groups,
+            buffer_while_offline=False,
             # we currently only buffer events when the event loop is enabled
             # XXX This excludes eventlet/gevent, which should actually buffer.
             buffer_group=['task'] if c.hub else None,
